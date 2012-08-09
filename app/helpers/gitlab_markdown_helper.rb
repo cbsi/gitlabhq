@@ -93,8 +93,19 @@ module GitlabMarkdownHelper
       })
 
       @__renderer.render(text).html_safe
-    rescue
-      text
+    rescue Exception => e
+      @__renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new({
+        no_intra_emphasis: true,
+        tables: true,
+        fenced_code_blocks: true,
+        autolink: true,
+        strikethrough: true,
+        lax_html_blocks: true,
+        space_after_headers: true,
+        superscript: true
+      }))
+
+      @__renderer.render(text).html_safe
     end
   end
 end
