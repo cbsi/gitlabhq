@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "3.2.5"
+gem "rails", "3.2.8"
 
 # Supported DBs
 gem "sqlite3"
@@ -18,30 +18,61 @@ gem 'yaml_db',       :git => "https://github.com/gitlabhq/yaml_db.git"
 gem 'grack',         :git => "https://github.com/gitlabhq/grack.git"
 gem "linguist", "~> 1.0.0", :git => "https://github.com/gitlabhq/linguist.git"
 
+# API
 gem "grape", "~> 0.2.1"
+
+# Format dates and times
+# based on human-friendly examples
 gem "stamp"
+
+# Pagination
 gem "kaminari"
+
+# HAML
 gem "haml-rails"
+
+# Files attachments
 gem "carrierwave"
+
+# Authorization
 gem "six"
+
+# Generate Fake data
 gem "ffaker"
+
+# Seed data
 gem "seed-fu"
+
+# Markdown to HTML
 gem "redcarpet", "~> 2.1.1"
+
+# Servers
 gem "thin"
 gem "unicorn"
-gem "git"
-gem "acts_as_list"
+
+# Issue tags
 gem "acts-as-taggable-on", "2.3.1"
-gem "drapper"
+
+# Decorators
+gem "draper"
+
+# Background jobs
 gem "resque", "~> 1.20.0"
+gem 'resque_mailer'
+
+# HTTP requests
 gem "httparty"
 gem "charlock_holmes", "0.6.8"
 gem "foreman"
 gem "colored"
-gem 'resque_mailer'
-gem 'tabs_on_rails'
+
+# GITLAB settings
 gem 'settingslogic'
 gem 'net-ssh'
+
+# Misc
+gem "foreman"
+gem "git"
 
 group :assets do
   gem "sass-rails",   "3.2.5"
@@ -54,12 +85,11 @@ group :assets do
   gem "jquery-ui-rails",  "0.5.0"
   gem "modernizr",        "2.5.3"
   gem "raphael-rails",    "1.5.2"
-  gem 'bootstrap-sass',   "2.0.3.1"
+  gem 'bootstrap-sass',   "2.0.4"
 end
 
 group :development do
   gem "letter_opener"
-  gem "rails-footnotes"
   gem "annotate", :git => "https://github.com/ctran/annotate_models.git"
   gem 'rack-mini-profiler'
 end
@@ -67,6 +97,8 @@ end
 group :development, :test do
   gem "rspec-rails"
   gem "capybara"
+  gem "capybara-webkit"
+  gem "headless"
   gem "autotest"
   gem "autotest-rails"
   gem "pry"
@@ -77,11 +109,13 @@ end
 
 group :test do
   gem 'cucumber-rails', :require => false
-  gem 'minitest', ">= 2.10"
-  gem "turn", :require => false
   gem "simplecov", :require => false
   gem "shoulda-matchers"
   gem 'email_spec'
   gem 'resque_spec'
   gem "webmock"
+end
+
+group :production do
+  gem "gitlab_meta", '2.8'
 end
