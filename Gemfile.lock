@@ -222,6 +222,7 @@ GEM
     multi_xml (0.5.1)
     mysql2 (0.3.11)
     net-ldap (0.2.2)
+    net-ssh (2.5.2)
     nokogiri (1.5.3)
     omniauth (1.1.0)
       hashie (~> 1.2)
@@ -407,6 +408,7 @@ DEPENDENCIES
   minitest (>= 2.10)
   modernizr (= 2.5.3)
   mysql2
+  net-ssh
   omniauth-ldap!
   pry
   pygments.rb!
