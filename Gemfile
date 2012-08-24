@@ -41,6 +41,7 @@ gem "colored"
 gem 'resque_mailer'
 gem 'tabs_on_rails'
 gem 'settingslogic'
+gem 'net-ssh'
 
 group :assets do
   gem "sass-rails",   "3.2.5"

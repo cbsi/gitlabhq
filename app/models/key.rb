@@ -1,3 +1,5 @@
+require 'openssl'
+require 'net/ssh'
 require 'digest/md5'
 
 class Key < ActiveRecord::Base
@@ -15,11 +17,26 @@ class Key < ActiveRecord::Base
 
   before_save :set_identifier
   before_validation :strip_white_space
+  before_validation :normalize_key
   delegate :name, :email, :to => :user, :prefix => true
   validate :unique_key
 
+  def parsed_key
+    Net::SSH::KeyFactory.load_data_public_key(key)
+  end
+
   def strip_white_space
     self.key = self.key.strip unless self.key.blank?
+  end
+
+  def normalize_key
+    begin
+      self.parsed_key
+    rescue Net::SSH::Exception, OpenSSL::PKey::PKeyError
+      errors.add :key, 'format unrecognized. Must use OpenSSH public key format.'
+    rescue Exception => e
+      errors.add :key, 'problem. Details: '+e.to_s
+    end
   end
 
   def unique_key
@@ -32,7 +49,7 @@ class Key < ActiveRecord::Base
 
   def set_identifier
     if is_deploy_key
-      self.identifier = "deploy_" + Digest::MD5.hexdigest(key)
+      self.identifier = "deploy_" + Digest::MD5.hexdigest(parsed_key.to_s)
     else
       self.identifier = "#{user.identifier}_#{Time.now.to_i}"
     end
