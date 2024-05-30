@@ -96,8 +96,8 @@ end
 
 group :development, :test do
   gem "rspec-rails"
-  gem "capybara"
-  gem "capybara-webkit"
+  gem "capybara", ">= 1.1.3"
+  gem "capybara-webkit", ">= 0.13.0"
   gem "headless"
   gem "autotest"
   gem "autotest-rails"
@@ -108,7 +108,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', '>= 1.3.1', :require => false
   gem "simplecov", :require => false
   gem "shoulda-matchers"
   gem 'email_spec'
