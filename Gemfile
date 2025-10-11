@@ -1,13 +1,13 @@
 source "http://rubygems.org"
 
-gem "rails", "3.2.8"
+gem "rails", "5.0.0"
 
 # Supported DBs
 gem "sqlite3"
 gem "mysql2"
 
 # Auth
-gem "devise", "~> 2.1.0"
+gem "devise", "~> 4.0.0"
 
 # GITLAB patched libs
 gem "grit",          :git => "https://github.com/gitlabhq/grit.git",            :ref => "7f35cb98ff17d534a07e3ce6ec3d580f67402837"
@@ -19,17 +19,17 @@ gem 'grack',         :git => "https://github.com/gitlabhq/grack.git"
 gem "linguist", "~> 1.0.0", :git => "https://github.com/gitlabhq/linguist.git"
 
 # API
-gem "grape", "~> 0.2.1"
+gem "grape", "~> 0.2.1", ">= 0.2.1.1"
 
 # Format dates and times
 # based on human-friendly examples
 gem "stamp"
 
 # Pagination
-gem "kaminari"
+gem "kaminari", ">= 0.14.0"
 
 # HAML
-gem "haml-rails"
+gem "haml-rails", ">= 0.5.3"
 
 # Files attachments
 gem "carrierwave"
@@ -47,18 +47,18 @@ gem "seed-fu"
 gem "redcarpet", "~> 2.1.1"
 
 # Servers
-gem "thin"
-gem "unicorn"
+gem "thin", ">= 1.4.0"
+gem "unicorn", ">= 4.4.0"
 
 # Issue tags
-gem "acts-as-taggable-on", "2.3.1"
+gem "acts-as-taggable-on", "3.1.0"
 
 # Decorators
-gem "draper"
+gem "draper", ">= 1.0.0"
 
 # Background jobs
-gem "resque", "~> 1.20.0"
-gem 'resque_mailer'
+gem "resque", "~> 1.21.0"
+gem 'resque_mailer', '>= 2.2.4'
 
 # HTTP requests
 gem "httparty"
@@ -75,14 +75,14 @@ gem "foreman"
 gem "git"
 
 group :assets do
-  gem "sass-rails",   "3.2.5"
-  gem "coffee-rails", "3.2.2"
+  gem "sass-rails", "5.0.5"
+  gem "coffee-rails", "4.1.1"
   gem "uglifier",     "1.0.3"
   gem "therubyracer"
 
-  gem 'chosen-rails'
-  gem "jquery-rails",     "2.0.2"
-  gem "jquery-ui-rails",  "0.5.0"
+  gem 'chosen-rails', '>= 0.9.11.1'
+  gem "jquery-rails", "4.0.1"
+  gem "jquery-ui-rails", "1.0.0"
   gem "modernizr",        "2.5.3"
   gem "raphael-rails",    "1.5.2"
   gem 'bootstrap-sass',   "2.0.4"
@@ -91,13 +91,13 @@ end
 group :development do
   gem "letter_opener"
   gem "annotate", :git => "https://github.com/ctran/annotate_models.git"
-  gem 'rack-mini-profiler'
+  gem 'rack-mini-profiler', '>= 0.1.10'
 end
 
 group :development, :test do
-  gem "rspec-rails"
-  gem "capybara"
-  gem "capybara-webkit"
+  gem "rspec-rails", ">= 2.11.0"
+  gem "capybara", ">= 1.1.3"
+  gem "capybara-webkit", ">= 0.13.0"
   gem "headless"
   gem "autotest"
   gem "autotest-rails"
@@ -108,11 +108,11 @@ group :development, :test do
 end
 
 group :test do
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', '>= 1.3.1', :require => false
   gem "simplecov", :require => false
   gem "shoulda-matchers"
   gem 'email_spec'
-  gem 'resque_spec'
+  gem 'resque_spec', '>= 0.12.0'
   gem "webmock"
 end
 
