@@ -61,7 +61,7 @@ gem "resque", "~> 1.20.0"
 gem 'resque_mailer'
 
 # HTTP requests
-gem "httparty"
+gem "httparty", ">= 0.24.0"
 gem "charlock_holmes", "0.6.8"
 gem "foreman"
 gem "colored"
