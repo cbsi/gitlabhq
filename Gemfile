@@ -1,13 +1,13 @@
 source "http://rubygems.org"
 
-gem "rails", "3.2.8"
+gem "rails", "8.1.2.1"
 
 # Supported DBs
 gem "sqlite3"
 gem "mysql2"
 
 # Auth
-gem "devise", "~> 2.1.0"
+gem "devise", "~> 4.7.0"
 
 # GITLAB patched libs
 gem "grit",          :git => "https://github.com/gitlabhq/grit.git",            :ref => "7f35cb98ff17d534a07e3ce6ec3d580f67402837"
@@ -26,13 +26,13 @@ gem "grape", "~> 0.2.1"
 gem "stamp"
 
 # Pagination
-gem "kaminari"
+gem "kaminari", ">= 0.14.0"
 
 # HAML
-gem "haml-rails"
+gem "haml-rails", ">= 0.5.3"
 
 # Files attachments
-gem "carrierwave"
+gem "carrierwave", ">= 0.7.0"
 
 # Authorization
 gem "six"
@@ -41,7 +41,7 @@ gem "six"
 gem "ffaker"
 
 # Seed data
-gem "seed-fu"
+gem "seed-fu", ">= 2.3.6"
 
 # Markdown to HTML
 gem "redcarpet", "~> 2.1.1"
@@ -51,14 +51,14 @@ gem "thin"
 gem "unicorn"
 
 # Issue tags
-gem "acts-as-taggable-on", "2.3.1"
+gem "acts-as-taggable-on", "3.1.0"
 
 # Decorators
-gem "draper"
+gem "draper", ">= 1.0.0"
 
 # Background jobs
 gem "resque", "~> 1.20.0"
-gem 'resque_mailer'
+gem 'resque_mailer', '>= 2.2.4'
 
 # HTTP requests
 gem "httparty"
@@ -75,14 +75,14 @@ gem "foreman"
 gem "git"
 
 group :assets do
-  gem "sass-rails",   "3.2.5"
-  gem "coffee-rails", "3.2.2"
+  gem "sass-rails", "5.0.8"
+  gem "coffee-rails", "4.2.2"
   gem "uglifier",     "1.0.3"
   gem "therubyracer"
 
-  gem 'chosen-rails'
-  gem "jquery-rails",     "2.0.2"
-  gem "jquery-ui-rails",  "0.5.0"
+  gem 'chosen-rails', '>= 0.9.11.1'
+  gem "jquery-rails", "4.0.1"
+  gem "jquery-ui-rails", "1.0.0"
   gem "modernizr",        "2.5.3"
   gem "raphael-rails",    "1.5.2"
   gem 'bootstrap-sass',   "2.0.4"
@@ -95,7 +95,7 @@ group :development do
 end
 
 group :development, :test do
-  gem "rspec-rails"
+  gem "rspec-rails", ">= 2.11.0"
   gem "capybara"
   gem "capybara-webkit"
   gem "headless"
@@ -110,7 +110,7 @@ end
 group :test do
   gem 'cucumber-rails', :require => false
   gem "simplecov", :require => false
-  gem "shoulda-matchers"
+  gem "shoulda-matchers", ">= 1.2.0"
   gem 'email_spec'
   gem 'resque_spec'
   gem "webmock"
